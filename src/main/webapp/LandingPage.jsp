@@ -40,9 +40,9 @@
 		</h1>
 		
 		<form name="formarea" action="appengineblog" method="post">
-			<input type="text" name="titlearea">
+			<input type="text" name="title">
 			<br>
-			<textarea name="postarea" rows="4" cols="50">
+			<textarea name="post" rows="4" cols="50">
 				 
 			</textarea><br>
 			<input type="submit" value="Post">
