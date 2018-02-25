@@ -22,7 +22,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
-		<title>Exam Results</title>
+		<title>A BRAND NEW BLOG</title>
 	</head>
 	
 	<body>
