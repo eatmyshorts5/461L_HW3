@@ -13,7 +13,7 @@ import com.google.appengine.api.users.UserServiceFactory;
 import appengineblog.BlogPost;
 
 public class BlogServlet extends HttpServlet {
-	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		/*UserService userService = UserServiceFactory.getUserService();
 		User user = userService.getCurrentUser();
 		if(user == null){
@@ -28,7 +28,7 @@ public class BlogServlet extends HttpServlet {
 	        Date date = new Date();
 	        UserService userService = UserServiceFactory.getUserService();
 	        User user = userService.getCurrentUser();
-	        BlogPost bpost = new BlogPost(user, title, post);
+	        BlogPost bpost = new BlogPost(user, req.getParameter("title").toString(), req.getParameter("post").toString());
 	        
 	        ofy().save().entity(bpost).now();
 	}
