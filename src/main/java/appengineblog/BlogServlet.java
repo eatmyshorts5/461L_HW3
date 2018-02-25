@@ -8,8 +8,6 @@ import com.google.appengine.api.users.UserServiceFactory;
 
 public class BlogServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		resp.setContentType("text/plain");
-		resp.getWriter().println("Current Blog Posts");
 		UserService userService = UserServiceFactory.getUserService();
 		User user = userService.getCurrentUser();
 		if(user == null){

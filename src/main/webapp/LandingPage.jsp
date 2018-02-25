@@ -26,8 +26,16 @@
 	</head>
 	
 	<body>
+	
 		<h1>
 			THE BLOG!!!!!!
+			<%
+
+    UserService userService = UserServiceFactory.getUserService();
+
+    User user = userService.getCurrentUser();
+
+    %>
 			<a style = "align:left" href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
 		</h1>
 	</body>

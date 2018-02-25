@@ -6,4 +6,16 @@
   <welcome-file-list>
     <welcome-file>LandingPage.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+           <servlet-name>Blog</servlet-name>
+           <servlet-class>
+             appengineblog.BlogServlet
+           </servlet-class>
+         </servlet>
+         <servlet-mapping>
+           <servlet-name>Blog</servlet-name>
+           <url-pattern>/examresults</url-pattern>
+         </servlet-mapping>
+         
 </web-app>
