@@ -38,6 +38,16 @@
     %>
 			<a style = "align:left" href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
 		</h1>
+		
+		<form name="formarea" action="appengineblog" method="post">
+			<input type="text" name="titlearea">
+			<br>
+			<textarea name="postarea" rows="4" cols="50">
+				 
+			</textarea><br>
+			<input type="submit" value="Post">
+		</form>
+		
 	</body>
 
 
