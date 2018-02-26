@@ -8,7 +8,7 @@
 
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
 
-<%@ page import="appengineblog.Blogger" %>
+<%@ page import="appengineblog.BlogPost" %>
 
 <%@ page import="com.googlecode.objectify.*" %>
 
@@ -17,6 +17,7 @@
 <%@ page import="java.util.Collections" %>
 
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 
 <html>
 	<head>
@@ -27,6 +28,21 @@
 	
 	<body>
 	
+<%
+
+	    String bloggerName = request.getParameter("bloggerName");
+	
+	    if (bloggerName == null) {
+	
+	        bloggerName = "default";
+	
+	    }
+	    
+	
+	    pageContext.setAttribute("bloggerName", bloggerName);
+	
+%>
+	
 		<h1>
 			THE BLOG!!!!!!
 			<%
@@ -36,8 +52,26 @@
     User user = userService.getCurrentUser();
 
     %>
-			<a style = "align:left" href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
+			<a style = "align:left" href="<%=userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
 		</h1>
+		
+		<p>${fn:escapeXml(bloggerName)}</p>
+		
+		<%
+	ObjectifyService.register(BlogPost.class);
+	
+	List<BlogPost> posts = ObjectifyService.ofy().load().type(BlogPost.class).list();   
+	
+	Collections.sort(posts);
+	
+	for (BlogPost post : posts){
+		pageContext.setAttribute("post_content", post.getPost());
+		pageContext.setAttribute("post_title", post.getTitle());
+	%>	
+		<blockquote>${fn:escapeXml(post_title)}</blockquote>
+		<blockquote>${fn:escapeXml(post_content)}</blockquote>
+		<br><%
+	}%>
 		
 		<form name="formarea" action="appengineblog" method="post">
 			<input type="text" name="title">
@@ -46,6 +80,7 @@
 				 
 			</textarea><br>
 			<input type="submit" value="Post">
+			<input type="hidden" name="bloggerName" value="${fn:escapeXml(bloggerName)}"/>
 		</form>
 		
 	</body>
