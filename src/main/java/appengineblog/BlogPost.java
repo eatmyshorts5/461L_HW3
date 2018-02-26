@@ -3,6 +3,7 @@ package appengineblog;
 import java.util.Date;
 
 import com.google.appengine.api.users.User;
+import com.google.appengine.api.users.UserService;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
