@@ -43,7 +43,7 @@ public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOExc
     String to = "chandaarka@yahoo.com";
 
     // Sender's email ID needs to be mentioned
-    String from = "chandaarka@yahoo.com";
+    String from = "arka.chanda2752@gmail.com";
 
     // Assuming you are sending email from localhost
     String host = "localhost";
