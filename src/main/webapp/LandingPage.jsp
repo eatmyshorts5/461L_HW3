@@ -81,26 +81,36 @@
 	Collections.sort(posts);
 	Collections.reverse(posts);
 	
+	int sizer = 5;
+	
+	if(posts.size() < 5){
+		sizer = posts.size();
+	}
+	
 	int hold = 0;
 	
-	//for (BlogPost post : posts){
-	for(int i = 0; i <  5; i++){
-		BlogPost post = posts.get(i);
-		pageContext.setAttribute("post_content", post.getPost());
-		pageContext.setAttribute("post_title", post.getTitle());
-		pageContext.setAttribute("post_date", post.getDate());
-		if(post.getUser() == null){
-			pageContext.setAttribute("post_user", "Anonymous");
-		} else {
-			pageContext.setAttribute("post_user", post.getUser().getNickname());
+	if(posts.isEmpty()){
+		
+		
+	} else {
+		for(int i = 0; i < sizer; i++){
+			BlogPost post = posts.get(i);
+			pageContext.setAttribute("post_content", post.getPost());
+			pageContext.setAttribute("post_title", post.getTitle());
+			pageContext.setAttribute("post_date", post.getDate());
+			if(post.getUser() == null){
+				pageContext.setAttribute("post_user", "Anonymous");
+			} else {
+				pageContext.setAttribute("post_user", post.getUser().getNickname());
+			}
+		%>	
+			<div id="title<%Integer.toString(hold);%>" class="title">${fn:escapeXml(post_title)}</div>
+			<div id="head<%Integer.toString(hold);%>">by ${fn:escapeXml(post_user)}, posted on ${fn:escapeXml(post_date)}</div>
+			<br>
+			<div id="post<%Integer.toString(hold);%>">${fn:escapeXml(post_content)}</div>
+			<br>
+			<%hold += 1;
 		}
-	%>	
-		<div id="title<%Integer.toString(hold);%>" class="title">${fn:escapeXml(post_title)}</div>
-		<div id="head<%Integer.toString(hold);%>">by ${fn:escapeXml(post_user)}, posted on ${fn:escapeXml(post_date)}</div>
-		<br>
-		<div id="post<%Integer.toString(hold);%>">${fn:escapeXml(post_content)}</div>
-		<br>
-		<%hold += 1;
 	}%>
 		
 <% 
