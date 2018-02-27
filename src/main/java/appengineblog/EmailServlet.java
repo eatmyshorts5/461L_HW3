@@ -56,7 +56,7 @@ public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOExc
     //String to = "chandaarka@yahoo.com";
 
     // Sender's email ID needs to be mentioned
-    String from = "arka.chanda2752@gmail.com";
+    String from = "BlogUpdates@ee461l-hw3-196503.appspotmail.com";
 
     // Assuming you are sending email from localhost
     String host = "localhost";
@@ -83,7 +83,7 @@ public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOExc
 
        // Set Subject: header field
        message.setSubject("New Blog Posts!! :)");
-       String mes = null;
+      StringBuilder mes = new StringBuilder();
        // Now set the actual message
        List<BlogPost> posts = ofy().load().type(BlogPost.class).list();
        Date yes = new Date();
@@ -91,11 +91,13 @@ public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOExc
        for(BlogPost meme : posts){
     	   if((current - meme.getDate().getTime()) < 86400000)
     	   {
-    		   mes = mes + meme.getPost() + "/n/n";
+    		   mes.append(meme.getTitle());
+    		   mes.append(meme.getPost());
+    		   mes.append("\n\n");
     	   }
        }
        if(mes.equals(null)){return;}
-       message.setText(mes); 
+       message.setText(mes.toString()); 
 
        // Send message
        Transport.send(message);
