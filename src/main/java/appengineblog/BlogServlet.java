@@ -27,22 +27,9 @@ public class BlogServlet extends HttpServlet {
 	}
 	
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		/*UserService userService = UserServiceFactory.getUserService();
-		User user = userService.getCurrentUser();
-		if(user == null){
-			resp.sendRedirect(userService.createLoginURL(req.getRequestURI()));
-		}*/
-		 //String guestbookName = req.getParameter("guestbookName");
-
-	        //Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
-
-	        //String content = req.getParameter("content");
-		
-		
-
 	        UserService userService = UserServiceFactory.getUserService();
+	        
 	        User user = userService.getCurrentUser();
-	        //BlogPost bpost = new BlogPost(user, req.getParameter("title").toString(), req.getParameter("post").toString());
 	        
 	        String bloggerName = req.getParameter("bloggerName");
 	        

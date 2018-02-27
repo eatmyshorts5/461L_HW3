@@ -7,25 +7,35 @@
     <welcome-file>LandingPage.jsp</welcome-file>
   </welcome-file-list>
   
-  <servlet>
-           <servlet-name>Blog</servlet-name>
-           <servlet-class>
-             appengineblog.BlogServlet
-           </servlet-class>
-         </servlet>
-         <servlet-mapping>
-           <servlet-name>Blog</servlet-name>
-           <url-pattern>/appengineblog</url-pattern>
-         </servlet-mapping>
-         
-         
-         <servlet>
-<servlet-name>BlogEmail</servlet-name>
-<servlet-class>appengineblog.EmailServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>BlogEmail</servlet-name>
-<url-pattern>/tasks/summary</url-pattern>
-</servlet-mapping>
+	<servlet>
+		<servlet-name>Blog</servlet-name>
+		<servlet-class>appengineblog.BlogServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Blog</servlet-name>
+		<url-pattern>/appengineblog</url-pattern>
+	</servlet-mapping>
+	         
+	         
+	<servlet>
+		<servlet-name>BlogEmail</servlet-name>
+		<servlet-class>appengineblog.EmailServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>BlogEmail</servlet-name>
+		<url-pattern>/tasks/summary</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Subscribe</servlet-name>
+		<servlet-class>appengineblog.SubServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Subscribe</servlet-name>
+		<url-pattern>/subscribe</url-pattern>
+	</servlet-mapping>
          
 </web-app>

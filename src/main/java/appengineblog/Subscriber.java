@@ -13,6 +13,11 @@ public class Subscriber {
 	
 	private Subscriber() {}
 	
+	public Subscriber(User user)
+	{
+		this.user = user;
+	}
+
 	public String getEmail() {
 		return user.getEmail();
 	}

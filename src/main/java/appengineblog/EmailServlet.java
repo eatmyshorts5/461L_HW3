@@ -12,11 +12,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
 
-
+import com.googlecode.objectify.ObjectifyService;
 
 
 @SuppressWarnings("serial")
 public class EmailServlet extends HttpServlet {
+	
+	static
+	{
+		ObjectifyService.register(Subscriber.class);
+		ObjectifyService.register(BlogPost.class);
+	}
 
 public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException
 {

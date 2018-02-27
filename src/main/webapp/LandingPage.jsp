@@ -12,6 +12,8 @@
 
 <%@ page import="appengineblog.BlogPost" %>
 
+<%@ page import="appengineblog.Subscriber" %>
+
 <%@ page import="com.googlecode.objectify.*" %>
 
 <%@ page import="static com.googlecode.objectify.ObjectifyService.ofy" %>
@@ -49,6 +51,19 @@
 	    UserService userService = UserServiceFactory.getUserService();
 
 	    User user = userService.getCurrentUser();
+	    
+	    ObjectifyService.register(Subscriber.class);
+	    
+	    boolean subscribed = false;
+	    
+		List<Subscriber> subscribers = ObjectifyService.ofy().load().type(Subscriber.class).list();
+        
+        for(Subscriber sub: subscribers) {
+        	
+        	if(sub.getUser() == user) {
+        		subscribed = true;
+        	}
+        }
 %>
 	    
 	
@@ -130,7 +145,18 @@
 		<form action="/postspage.jsp" method="get">
 			<input type="submit" value="View All">
 		</form>
-<% 
+<%		
+		if(subscribed == false){%>
+			<form name="subarea" action="subscribe" method="post">
+				<input type="submit" value="Subscribe">
+			</form>
+		<% 
+		} else {
+		%>
+			<form name="unsubarea" action="subscribe" method="get">
+				<input type="submit" value="Unsubscribe">
+			</form>
+<% 		}
 		} else {%>
 			Please <a href="<%=userService.createLoginURL(request.getRequestURI()) %>">Sign in</a> to post
 		<%}
