@@ -157,7 +157,7 @@
         },
         {
           "name": "javadoc_location",
-          "value": "https://www.javadoc.io/doc/com.googlecode.objectify/objectify/5.1.21"
+          "value": "https://www.javadoc.io/doc/com.googlecode.objectify/objectify/5.1.22"
         }
       ]
     },
@@ -235,7 +235,8 @@
         "type": "jar"
       },
       "export": true,
-      "fixedVersion": false
+      "fixedVersion": false,
+      "pinned": false
     },
     {
       "filters": [],
@@ -247,7 +248,8 @@
         "type": "jar"
       },
       "export": true,
-      "fixedVersion": false
+      "fixedVersion": false,
+      "pinned": false
     },
     {
       "filters": [],
@@ -259,7 +261,8 @@
         "type": "jar"
       },
       "export": true,
-      "fixedVersion": false
+      "fixedVersion": false,
+      "pinned": false
     },
     {
       "filters": [],
@@ -271,7 +274,8 @@
         "type": "jar"
       },
       "export": true,
-      "fixedVersion": false
+      "fixedVersion": false,
+      "pinned": false
     },
     {
       "filters": [],
@@ -282,9 +286,10 @@
         "version": "5.1.22",
         "type": "jar"
       },
-      "javadocUri": "https://www.javadoc.io/doc/com.googlecode.objectify/objectify/5.1.21",
+      "javadocUri": "https://www.javadoc.io/doc/com.googlecode.objectify/objectify/5.1.22",
       "export": true,
-      "fixedVersion": true
+      "fixedVersion": true,
+      "pinned": false
     },
     {
       "filters": [],
@@ -296,7 +301,8 @@
         "type": "jar"
       },
       "export": true,
-      "fixedVersion": false
+      "fixedVersion": false,
+      "pinned": false
     },
     {
       "filters": [],
@@ -308,7 +314,8 @@
         "type": "jar"
       },
       "export": true,
-      "fixedVersion": false
+      "fixedVersion": false,
+      "pinned": false
     }
   ]
 }
