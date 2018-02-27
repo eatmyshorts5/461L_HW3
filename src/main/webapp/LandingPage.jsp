@@ -58,9 +58,13 @@
 	    
 		List<Subscriber> subscribers = ObjectifyService.ofy().load().type(Subscriber.class).list();
         
+		
+		
         for(Subscriber sub: subscribers) {
         	
-        	if(sub.getUser() == user) {
+        	System.out.println(sub.getUser().getEmail());
+        	
+        	if(sub.getUser().equals(user)) {
         		subscribed = true;
         	}
         }
@@ -127,7 +131,9 @@
 			<%hold += 1;
 		}
 	}%>
-		
+		<form action="/postspage.jsp" method="get">
+			<input type="submit" value="View All">
+		</form><br><br>
 <% 
 		if(user != null){
 %>
@@ -141,10 +147,6 @@
 			<input type="hidden" name="bloggerName" value="${fn:escapeXml(bloggerName)}"/>
 		</form>
 		<br>
-
-		<form action="/postspage.jsp" method="get">
-			<input type="submit" value="View All">
-		</form>
 <%		
 		if(subscribed == false){%>
 			<form name="subarea" action="subscribe" method="post">

@@ -98,8 +98,10 @@
 		<br>
 		<%hold += 1;
 	}%>
-		
-
+	<br><br>	
+	<form action="/LandingPage.jsp" method="get">
+			<input type="submit" value="Home">
+	</form>
 		
 	</body>
 
