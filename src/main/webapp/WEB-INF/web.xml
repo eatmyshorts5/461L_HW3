@@ -24,7 +24,7 @@
 <servlet-class>appengineblog.EmailServlet</servlet-class>
 </servlet>
 <servlet-mapping>
-<servlet-name>Email</servlet-name>
+<servlet-name>BlogEmail</servlet-name>
 <url-pattern>/tasks/summary</url-pattern>
 </servlet-mapping>
          
