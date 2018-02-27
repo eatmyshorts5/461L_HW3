@@ -42,6 +42,10 @@ public class BlogPost implements Comparable<BlogPost>{
 			return post;
 		}
 		
+		public Date getDate() {
+			return date;
+		}
+		
 		@Override
 	    public int compareTo(BlogPost other) {
 	        if (date.after(other.date)) {

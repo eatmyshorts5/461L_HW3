@@ -81,4 +81,9 @@ public class BlogServlet extends HttpServlet {
 	        resp.sendRedirect("/LandingPage.jsp");
 	   
 	}
+	
+	public void doRedirect(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+		
+	}
+	
 }
