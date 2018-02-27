@@ -86,7 +86,7 @@
 			} else {
 %>
 			<p class="signin">
-			Please <a style = "align:right" href="<%=userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
+			<a style = "align:right" href="<%=userService.createLoginURL(request.getRequestURI()) %>"><img src="btn_google_signin_dark_pressed_web.png"></a>
 			</p>
 			<%}%>
 		</h1>
