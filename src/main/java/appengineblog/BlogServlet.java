@@ -72,8 +72,5 @@ public class BlogServlet extends HttpServlet {
 	   
 	}
 	
-	public void doRedirect(HttpServletRequest req, HttpServletResponse resp) throws IOException{
-		
-	}
 	
 }

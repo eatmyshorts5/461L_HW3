@@ -83,8 +83,6 @@
 	
 	int hold = 0;
 	
-	
-	
 	//for (BlogPost post : posts){
 	for(int i = 0; i <  5; i++){
 		BlogPost post = posts.get(i);
@@ -117,12 +115,19 @@
 			<input type="submit" value="Post">
 			<input type="hidden" name="bloggerName" value="${fn:escapeXml(bloggerName)}"/>
 		</form>
+		<br>
+
+		<form action="/postspage.jsp" method="get">
+			<input type="submit" value="View All">
+		</form>
 <% 
 		} else {%>
 			Please <a href="<%=userService.createLoginURL(request.getRequestURI()) %>">Sign in</a> to post
 		<%}
 %>
-		
+	
+<!--  	<input type="submit" value="subscribe" href=-->
+			
 	</body>
 
 
