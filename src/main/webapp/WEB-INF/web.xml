@@ -18,4 +18,14 @@
            <url-pattern>/appengineblog</url-pattern>
          </servlet-mapping>
          
+         
+         <servlet>
+<servlet-name>BlogEmail</servlet-name>
+<servlet-class>appengineblog.BlogServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>Blog</servlet-name>
+<url-pattern>/tasks/summary</url-pattern>
+</servlet-mapping>
+         
 </web-app>
