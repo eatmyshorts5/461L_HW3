@@ -15,7 +15,7 @@
          </servlet>
          <servlet-mapping>
            <servlet-name>Blog</servlet-name>
-           <url-pattern>/examresults</url-pattern>
+           <url-pattern>/appengineblog</url-pattern>
          </servlet-mapping>
          
 </web-app>

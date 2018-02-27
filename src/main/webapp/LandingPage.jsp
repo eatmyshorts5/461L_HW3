@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<%@ page import="appengineblog.*" %> 
+
 <%@ page import="java.util.List" %>
 
 <%@ page import="com.google.appengine.api.users.User" %>

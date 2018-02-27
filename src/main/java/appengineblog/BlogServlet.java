@@ -30,6 +30,6 @@ public class BlogServlet extends HttpServlet {
 	        User user = userService.getCurrentUser();
 	        BlogPost bpost = new BlogPost(user, req.getParameter("title").toString(), req.getParameter("post").toString());
 	        
-	        ofy().save().entity(bpost).now();
+	        //ofy().save().entity(bpost).now();
 	}
 }
