@@ -1,7 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@ page import="appengineblog.*" %> 
-
 <%@ page import="java.util.List" %>
 
 <%@ page import="com.google.appengine.api.users.User" %>
@@ -83,11 +81,7 @@
 	
 	int hold = 0;
 	
-	
-	
-	//for (BlogPost post : posts){
-	for(int i = 0; i <  5; i++){
-		BlogPost post = posts.get(i);
+	for (BlogPost post : posts){
 		pageContext.setAttribute("post_content", post.getPost());
 		pageContext.setAttribute("post_title", post.getTitle());
 		pageContext.setAttribute("post_date", post.getDate());
@@ -105,23 +99,7 @@
 		<%hold += 1;
 	}%>
 		
-<% 
-		if(user != null){
-%>
-		<form name="formarea" action="appengineblog" method="post">
-			<input type="text" name="title">
-			<br>
-			<textarea name="post" rows="4" cols="50">
-				 
-			</textarea><br>
-			<input type="submit" value="Post">
-			<input type="hidden" name="bloggerName" value="${fn:escapeXml(bloggerName)}"/>
-		</form>
-<% 
-		} else {%>
-			Please <a href="<%=userService.createLoginURL(request.getRequestURI()) %>">Sign in</a> to post
-		<%}
-%>
+
 		
 	</body>
 
