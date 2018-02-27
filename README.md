@@ -4,4 +4,4 @@ Homework 3 for EE461L
 
 Daniel Chen, dkc589
 
-Akra Chanda,
+Akra Chanda, ajc422

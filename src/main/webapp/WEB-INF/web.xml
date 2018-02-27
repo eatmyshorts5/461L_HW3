@@ -21,7 +21,7 @@
          
          <servlet>
 <servlet-name>BlogEmail</servlet-name>
-<servlet-class>appengineblog.BlogServlet</servlet-class>
+<servlet-class>appengineblog.EmailServlet</servlet-class>
 </servlet>
 <servlet-mapping>
 <servlet-name>Blog</servlet-name>
