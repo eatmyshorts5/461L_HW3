@@ -70,28 +70,29 @@
         }
 %>
 	    
-	
+		<div class="transbox">
 		<h1>
-			THE BLOG!!!!!!
+			<p class="headtitle">THE BLOG!!!!!!</p>
 <% 
 			if(user != null){
 	    	
 	    		pageContext.setAttribute("user", user);
 	
 %>
-			<p>Signed in as ${fn:escapeXml(user.nickname)}
+			<p class="signin">Signed in as ${fn:escapeXml(user.nickname)}
 			<br>
-			Click here to <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">Sign Out</a>
+			Click here to <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">Sign Out</a></p>
 <% 
 			} else {
 %>
-			<p>Hello Guest<br>
+			<p class="signin">
 			Please <a style = "align:right" href="<%=userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
+			</p>
 			<%}%>
 		</h1>
+		</div>
 		
-		<p>${fn:escapeXml(bloggerName)}</p>
-		
+		<div class="transbox">
 		<%
 	ObjectifyService.register(BlogPost.class);
 	
@@ -163,7 +164,7 @@
 			Please <a href="<%=userService.createLoginURL(request.getRequestURI()) %>">Sign in</a> to post
 		<%}
 %>
-	
+		</div>
 <!--  	<input type="submit" value="subscribe" href=-->
 			
 	</body>

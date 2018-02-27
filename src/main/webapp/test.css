@@ -1,3 +1,28 @@
 .title{
 	font-weight: bold;
 }
+
+.signin{
+	float: right;	
+	
+}
+
+.headtitle{
+	float: left;
+}
+
+div.transbox{
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right; 5%
+  margin-bottom: 2%;
+  padding: 2%;
+  align: center;
+  background-color: #F8F8FF;
+  border: 2px solid black;
+  opacity: 0.85;
+  overflow: auto;
+}
+
+
+

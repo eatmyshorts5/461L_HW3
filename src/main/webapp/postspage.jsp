@@ -60,16 +60,15 @@
 %>
 			<p>Signed in as ${fn:escapeXml(user.nickname)}
 			<br>
-			Click here to <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">Sign Out</a>
+			Click here to <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">Sign Out</a></p>
 <% 
 			} else {
 %>
 			<p>Hello Guest<br>
-			Please <a style = "align:right" href="<%=userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
+			Please <a style = "align:right" href="<%=userService.createLoginURL(request.getRequestURI()) %>">Sign in</a></p>
 			<%}%>
 		</h1>
 		
-		<p>${fn:escapeXml(bloggerName)}</p>
 		
 		<%
 	ObjectifyService.register(BlogPost.class);

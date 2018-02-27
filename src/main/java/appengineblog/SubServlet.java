@@ -31,14 +31,6 @@ public class SubServlet extends HttpServlet {
         
         User user = userService.getCurrentUser();
         
-        System.out.println("I went in");
-        
-        List<Subscriber> subscribers = ofy().load().type(Subscriber.class).list();
-        
-        for(Subscriber sub: subscribers) {
-        	System.out.println(sub.getEmail());
-        }
-        
         Subscriber subscriber = new Subscriber(user);
         
         ofy().save().entity(subscriber).now();
@@ -50,8 +42,6 @@ public class SubServlet extends HttpServlet {
 		UserService userService = UserServiceFactory.getUserService();
         
         User user = userService.getCurrentUser();
-        
-        System.out.println("I did not go in");
         
         List<Subscriber> subscribers = ofy().load().type(Subscriber.class).list();
         
