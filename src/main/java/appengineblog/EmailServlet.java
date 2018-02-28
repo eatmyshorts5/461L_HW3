@@ -92,8 +92,10 @@ public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOExc
     	   if((current - meme.getDate().getTime()) < 86400000)
     	   {
     		   mes.append(meme.getTitle());
+    		   mes.append(" by ");  mes.append(meme.user.getNickname()); mes.append(" at "); mes.append(meme.getDate().toString());
+    		   mes.append("\n");
     		   mes.append(meme.getPost());
-    		   mes.append("\n\n");
+    		   mes.append("\n\n\n");
     	   }
        }
        if(mes.equals(null)){return;}
