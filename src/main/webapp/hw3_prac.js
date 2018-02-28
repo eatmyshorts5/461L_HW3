@@ -1,5 +1,6 @@
 var slider;
 var sideslider;
+var signbut;
 var box;
 var numposts;
 var box2;
@@ -13,15 +14,18 @@ var vid2;
 var fader;
 var opac = 1.0;
 var opac2 = 1.0;
-var vol = 0.3;
+var height;
+var vol = 0.4;
 var oldman1;
 var oldman2;
 var oldman3;
 var oldman4;
 var oldman5;
+var oldman6;
 var quote;
 var itval;
 var flag = true;
+var logflag = false;
 
 var backgrounds = ['one.jpg', 'two.jpg', 'three.png', 'four.jpg', 'five.jpg', 'six.jpg', 'seven.jpg'];
 var fonts = ["'Monoton', cursive", "'Press Start 2P', cursive", "'Freckle Face', cursive", "'Fredericka the Great', cursive", "'Bigelow Rules', cursive", "'Fontdiner Swanky', cursive", "'Butcherman', cursive"];
@@ -104,12 +108,25 @@ window.addEventListener('DOMContentLoaded', function(){
 	oldman3 = new Audio('oldman3.mp3');
 	oldman4 = new Audio('oldman4.mp3');
 	oldman5 = new Audio('oldman5.mp3');
+	oldman6 = new Audio('oldman6.mp3');
 	quote = new Audio('quote.mp3');
-	numposts = document.getElementById("postnum").value;
+	numposts = parseInt(document.getElementById("postnum").value);
+	if(document.getElementById("loginval").value == "true"){
+		signbut = document.getElementById("signimg");
+	} 
+	
+	height = 2.0 * thebod.scrollHeight; 
+	thebod.style.backgroundSize = "200% "+height+"px, cover";
+	
+	var slideRect = sideslider.getBoundingClientRect();
+	console.log(slideRect.top, slideRect.right, slideRect.bottom, slideRect.left);
+	
+/*	sideslider.style.width = (0.9  * document.documentElement.scrollHeight) + 'px';
+	var slideRect = sideslider.getBoundingClientRect();
+	console.log(slideRect.top, slideRect.right, slideRect.bottom, slideRect.left);
+    sideslider.style.marginLeft = (document.documentElement.clientWidth - slideRect.bottom) + 'px';
+    sideslider.style.marginTop = (document.documentElement.scrollHeight * 0.45) + 'px';*/
 
-	sideslider.style.width = (0.9  * thebod.scrollHeight) + 'px';
-	sideslider.style.marginLeft = "66%";
-	sideslider.style.marginTop = "30%";
 	sideslider.max = (numposts - 1) * 20;
 	sideslider.value = (numposts - 1) * 20;
 	
@@ -130,6 +147,7 @@ window.addEventListener('DOMContentLoaded', function(){
 			clearInterval(cycle2);
 			vid.volume = 0.4;
 			vid.play();
+			oldman6.play();
 			vid.style.display = "block";
 			box.style.display = "none";
 			box2.style.display = "none";
@@ -140,16 +158,17 @@ window.addEventListener('DOMContentLoaded', function(){
 	}, false);
 
   vid.addEventListener('play', function() {
-    var vider = setTimeout(function() {
+	  setTimeout(function() {
 			thebod.style.backgroundColor = "#000000";
 			thebod.style.backgroundImage = "none";
 			vid2.style.display = "block";
 			vid2.play();
       fader = setInterval(function() {
-        if(opac == 0.0){
+        if(opac <= 0.0){
           clearInterval(fader);
-          vid.stop();
-          opac = 1.0;
+          vid.pause();
+          vid.style.display = "none";
+          vid.volume = 0;
         } else {
           opac = opac - 0.01;
           vid.style.opacity = opac;
@@ -163,21 +182,25 @@ window.addEventListener('DOMContentLoaded', function(){
 
   }, false);
   	
-  vid2.addEventListener('ended', function() {
-    meme.style.display = "block";
-    meme.style.visibility = "visible"; 
-    document.getElementById("restart").style.visibility = "visible";
-	  fader2 = setInterval(function() {
-        if(opac2 == 0.0){
-          clearInterval(fader2); 
-          this.style.display = "none";
-        } else {
-        	opac2 = opac2 - 0.01;
-			vid2.style.opacity = opac2; 
-        }
-      }, 80);
-		
-	}, false);
+  vid2.addEventListener('play', function(){
+	  setTimeout(function(){
+		  vid2.pause();
+	      meme.style.display = "block";
+	      meme.style.visibility = "visible";
+	      document.getElementById("restart").style.visibility = "visible";
+	      fader2 = setInterval(function() {
+	    	  	if(opac2 <= 0.0){
+					clearInterval(fader2); 
+					vid2.style.zIndex = "-100";
+					vid2.style.display = "none";
+					vid2.style.visibility = "hidden";
+				} else {
+					opac2 = opac2 - 0.01;
+					vid2.style.opacity = opac2; 
+				}
+	      }, 80);	
+	  }, 57514);
+  }, false);
 
   oldman5.addEventListener('ended', function() {
     music.volume = 1.0;
@@ -187,14 +210,31 @@ window.addEventListener('DOMContentLoaded', function(){
     if(this.value > 84){
       this.style.display = "none";
       sideslider.style.display = "block";
+      sideslider.style.width = (0.9  * document.documentElement.scrollHeight) + 'px';
+  	  var slideRect = sideslider.getBoundingClientRect();
+  	  console.log(slideRect.top, slideRect.right, slideRect.bottom, slideRect.left);
+      //sideslider.style.marginLeft = (slideRect.left + (document.documentElement.scrollWidth - slideRect.left)) + 'px';
+  	  var slideRect = sideslider.getBoundingClientRect();
+  	  sideslider.style.marginLeft = (document.documentElement.scrollWidth * 0.95 - slideRect.left)+"px";
+  	  //sideslider.style.marginTop = (document.documentElement.scrollHeight * 0.45) + 'px';
+  	  //sideslider.style.marginTop = "";
+  	  sideslider.style.marginTop = -(slideRect.top - 100)+"px";
+  	  
+  	  if(document.getElementById("loginval").value == "true"){
+  		  signbut.src = "btn_google_signin_dark_pressed_web.png";
+	  } 
+  	  
+      document.getElementById("headpic").style.visibility = "visible";
       oldman1.pause();
       oldman2.play();
     } else if(slider.value >= 0){
       if(!box.classList.contains('transbox')){
-			  box.classList.add('transbox');
-				box2.classList.add('transbox');
+			box.classList.add('transbox');
+			box2.classList.add('transbox');
+			height = 2.0 * thebod.scrollHeight; 
+			thebod.style.backgroundSize = "200% "+height+"px, cover";
       }
-      box.style.width = this.value+'%';
+      		box.style.width = this.value+'%';
 			box2.style.width = this.value+'%';
 		} else {
       box.classList.remove('transbox');
@@ -221,7 +261,7 @@ window.addEventListener('DOMContentLoaded', function(){
 	sideslider.oninput = function() {   
 		if(this.value > -1){
 			for (i = 0; i < numposts; i++){
-				if(i <= numposts - 1 - (this.value / 20)){
+				if(i < numposts - 1 - (this.value / 20)){
 					document.getElementById("title"+i).classList.add("title");
 					document.getElementById("head"+i).classList.add("posthead");
 					document.getElementById("post"+i).classList.add("post");
@@ -232,12 +272,12 @@ window.addEventListener('DOMContentLoaded', function(){
 				}
 			}
 		} else {
-			/*document.getElementById("title"+(numposts-1)).classList.add("title");
+			document.getElementById("title"+(numposts-1)).classList.add("title");
 			document.getElementById("head"+(numposts-1)).classList.add("posthead");
-			document.getElementById("post"+(numposts-1)).classList.add("post");*/
+			document.getElementById("post"+(numposts-1)).classList.add("post");
 
 			this.style.display = "none";
-			thebod.style.backgroundRepeat = "repeat-y";
+			thebod.style.backgroundRepeat = "no-repeat, repeat-y";
 			downslider.style.display = "block";
 			oldman2.pause();
 			oldman3.play();
@@ -246,7 +286,7 @@ window.addEventListener('DOMContentLoaded', function(){
 
 	downslider.oninput = function() {
 		if(this.value < 200){
-			thebod.style.backgroundSize = (200 - this.value)+"% 120%, cover";
+			thebod.style.backgroundSize = (200 - this.value)+"% "+height+"px, cover";
 	    } else {
 	    	thebod.style.backgroundSize = "0% 0%, cover"; 
 	    	this.style.display = "none";
@@ -261,6 +301,8 @@ window.addEventListener('DOMContentLoaded', function(){
 			this.style.display = "none"; 
 			oldman4.pause();
 
+			document.getElementById("headpic").src = "tenor1.gif"
+			
 			thebod.style.backgroundSize = "cover";
 			thebod.style.backgroundPosition = "50% 100%";
 			

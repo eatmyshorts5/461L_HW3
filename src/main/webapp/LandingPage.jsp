@@ -108,41 +108,45 @@
 			<video id="thevid2" class="fullscreen-bg__video">
 				<source src="space.mp4" type="video/mp4">
 			</video>
+			<p class="meme" id="thisisdumb">
+		    	<br><br><br>
+	    		Dedicated to:<br> Colin Maxfield<br><br>
+	    		1992-2018<br><br>
+	    		"He was alright" -Mahatma Gandhi<br><br>
+	    		<form action="/LandingPage.jsp" method="get">
+					<input type="submit" id="restart" value="Let's try that again....">
+				</form>
+			</p>
 		</div>
 
 	    
 	    
 		<input type="range" min="-1" max="85" value="-1" class="overslider" id="myRange"> 
   		<input type="range" min="-1" max="150" value="0" class="verticalslide" id="myRange2">
-	    
-	    <p class="meme" id="thisisdumb">
-	    	<br><br><br><br><br>
-    		Dedicated to:<br> Colin Maxfield<br><br>
-    		1992-2018<br><br>
-    		"He was alright" -Mahatma Gandhi<br><br>
-    		<form action="/LandingPage.jsp" method="get">
-			<input type="submit" id="restart" value="Let's try that again....">
-			</form>
-		</p>
+
 	    
 	    
 		<div id="thebox">
 		<h1>
-			<p class="headtitle">THE BLOG!!!!!! DEBUG!!</p>
+			<img id="headpic" class="headerpic" src="tenor.gif">
+		
+			<p class="headtitle">THE BLOG</p>
 <% 
 			if(user != null){
 	    	
 	    		pageContext.setAttribute("user", user);
 	
 %>
+			<input type="hidden" name="logged in?" id="loginval" value="false">
 			<p class="signin">Signed in as ${fn:escapeXml(user.nickname)}
 			<br>
 			Click here to <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">Sign Out</a></p>
 <% 
 			} else {
 %>
+			<input type="hidden" name="logged in?" id="loginval" value="true">	
 			<p class="signin">
-			<a style = "align:right" href="<%=userService.createLoginURL(request.getRequestURI()) %>"><img src="btn_google_signin_dark_pressed_web.png"></a>
+			<a href="<%=userService.createLoginURL(request.getRequestURI()) %>"><img id="signimg"></a>
 			</p>
 			<%}%>
 		</h1>
@@ -185,9 +189,9 @@
 			holder = Integer.toString(hold);
 			pageContext.setAttribute("holder", holder);
 		%>	
-			<div id="title${fn:escapeXml(holder)}">${fn:escapeXml(post_title)}</div>
+			<div id="title${fn:escapeXml(holder)}">${fn:escapeXml(post_title)}</div><br>
 			<div id="head${fn:escapeXml(holder)}">by ${fn:escapeXml(post_user)}, posted on ${fn:escapeXml(post_date)}</div>
-			<br>
+			<br><br>
 			<div id="post${fn:escapeXml(holder)}">${fn:escapeXml(post_content)}</div>
 			<br>
 			<br><div id="colorstrip"></div><br><br>
