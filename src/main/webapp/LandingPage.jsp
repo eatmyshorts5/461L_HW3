@@ -31,11 +31,40 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">		
 		<script type="text/javascript" src="hw3_prac.js"></script>
 		<link rel="stylesheet" href="hw3_prac.css">
+		<%--<meta name="google-signin-client_id" content="909316987604-dc065603r3u64qfmdmm96aubrkltoo7f.apps.googleusercontent.com">--%><meta name="google-signin-client_id" content="909316987604-dc065603r3u64qfmdmm96aubrkltoo7f.apps.googleusercontent.com">
+		<link rel="stylesheet" href="test.css">
+
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
 		<title>A BRAND NEW BLOG</title>
 	</head>
 	
 	<body id="ohyeah" class="background">
+	
+	
+	<script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+      userService.createLoginURL(request.getRequestURI());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
+
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+	
+	
 	
 <%
 
@@ -113,7 +142,7 @@
 			} else {
 %>
 			<p class="signin">
-			Please <a style = "align:right" href="<%=userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
+			<a style = "align:right" href="<%=userService.createLoginURL(request.getRequestURI()) %>"><img src="btn_google_signin_dark_pressed_web.png"></a>
 			</p>
 			<%}%>
 		</h1>
