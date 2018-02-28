@@ -28,12 +28,14 @@
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<link rel="stylesheet" href="test.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">		
+		<script type="text/javascript" src="hw3_prac.js"></script>
+		<link rel="stylesheet" href="hw3_prac.css">
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
 		<title>A BRAND NEW BLOG</title>
 	</head>
 	
-	<body>
+	<body id="ohyeah" class="background">
 	
 <%
 
@@ -70,9 +72,34 @@
         }
 %>
 	    
-		<div class="transbox">
+	    <div class="fullscreen-bg">
+			<video id="thevid" class="fullscreen-bg__video">
+				<source src="static4.mp4" type="video/mp4">
+			</video>
+			<video id="thevid2" class="fullscreen-bg__video">
+				<source src="space.mp4" type="video/mp4">
+			</video>
+		</div>
+
+	    
+	    
+		<input type="range" min="-1" max="85" value="-1" class="overslider" id="myRange"> 
+  		<input type="range" min="-1" max="150" value="0" class="verticalslide" id="myRange2">
+	    
+	    <p class="meme" id="thisisdumb">
+	    	<br><br><br><br><br>
+    		Dedicated to:<br> Colin Maxfield<br><br>
+    		1992-2018<br><br>
+    		"He was alright" -Mahatma Gandhi<br><br>
+    		<form action="/LandingPage.jsp" method="get">
+			<input type="submit" id="restart" value="Let's try that again....">
+			</form>
+		</p>
+	    
+	    
+		<div id="thebox">
 		<h1>
-			<p class="headtitle">THE BLOG!!!!!!</p>
+			<p class="headtitle">THE BLOG!!!!!! DEBUG!!</p>
 <% 
 			if(user != null){
 	    	
@@ -92,7 +119,7 @@
 		</h1>
 		</div>
 		
-		<div class="transbox">
+		<div id="thebox2">
 		<%
 	ObjectifyService.register(BlogPost.class);
 	
@@ -101,6 +128,8 @@
 	Collections.sort(posts);
 	Collections.reverse(posts);
 	
+	pageContext.setAttribute("numposts", Integer.toString(posts.size()));
+	
 	int sizer = 5;
 	
 	if(posts.size() < 5){
@@ -108,6 +137,7 @@
 	}
 	
 	int hold = 0;
+	String holder;
 	
 	if(posts.isEmpty()){
 		
@@ -123,12 +153,16 @@
 			} else {
 				pageContext.setAttribute("post_user", post.getUser().getNickname());
 			}
+			holder = Integer.toString(hold);
+			pageContext.setAttribute("holder", holder);
 		%>	
-			<div id="title<%Integer.toString(hold);%>" class="title">${fn:escapeXml(post_title)}</div>
-			<div id="head<%Integer.toString(hold);%>">by ${fn:escapeXml(post_user)}, posted on ${fn:escapeXml(post_date)}</div>
+			<div id="title${fn:escapeXml(holder)}">${fn:escapeXml(post_title)}</div>
+			<div id="head${fn:escapeXml(holder)}">by ${fn:escapeXml(post_user)}, posted on ${fn:escapeXml(post_date)}</div>
 			<br>
-			<div id="post<%Integer.toString(hold);%>">${fn:escapeXml(post_content)}</div>
+			<div id="post${fn:escapeXml(holder)}">${fn:escapeXml(post_content)}</div>
 			<br>
+			<br><div id="colorstrip"></div><br><br>
+			
 			<%hold += 1;
 		}
 	}%>
@@ -164,10 +198,16 @@
 			Please <a href="<%=userService.createLoginURL(request.getRequestURI()) %>">Sign in</a> to post
 		<%}
 %>
+		<input type="hidden" name="number of posts" id="postnum" value="${fn:escapeXml(numposts)}">
 		</div>
-<!--  	<input type="submit" value="subscribe" href=-->
+
+  	<input type="range" min="0" max="200" value="0" class="downslide" id="myRange3">
+  	<input type="range" min="0" max="100" value="100" class="verticalslide" id="myRange4">
+  	
+  	<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
 			
-	</body>
+</body>
 
 
 

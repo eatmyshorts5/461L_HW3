@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css?family=Bigelow+Rules|Butcherman|Fontdiner+Swanky|Freckle+Face|Fredericka+the+Great|Monoton|Press+Start+2P');
+
+html{
+	height: 120%;
+}
+
+h1 {
+  font-family: 'Adelle W01 Bold', 'Arvo', Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+#colorstrip{
+    width: 100%; height: 2px;
+    border-style: solid;
+    border-color: white;
+    background-color: black;
+	postion: absolute;
+}
+
+#restart{
+	visibility: hidden;
+	text-align: center;
+	align: middle;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.meme{
+  display: none;
+  font-size: 50px;
+  color: #ffffff;
+  text-align: center;
+  font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  visibility: hidden;
+}
+
+.headtitle{
+	float: left;
+}
+
+.signin{
+	float: right;
+}
+
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+
+.fullscreen-bg__video {
+    position: absolute;
+	display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    width: 300%;
+    left: -100%;
+  }
+}
+
+body.videeeo{
+  display: none;
+  postion: absolute;
+  top: 0;
+  left: 0;
+/*  width: 100%;
+  height: 100%;*/
+  background-size: cover;
+/*  overflow: auto;*/
+  z-index: 1000;
+}
+
+#container{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#wrapper{
+	min-height: 100%;
+}
+
+body.background {
+	background-image: linear-gradient(to right,#ffffff,#ffffff,#ffffff,#ffffff,rgba(0, 0, 0, 0)), url("yosemite.jpg");	
+	background-repeat: no-repeat;
+	background-size: 200% 120%, cover;
+  background-position: left-center, 50% 100%;
+/*	-webkit-clip-path: polygon(0 12%, 0 86%, 35% 50%);
+  clip-path: polygon(0 12%, 0 86%, 35% 50%);*/
+}
+
+div.transbox{
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right; 5%
+  margin-bottom: 2%;
+  padding: 2%;
+  align: center;
+  background-color: #F8F8FF;
+  border: 2px solid black;
+  opacity: 0.85;
+  overflow: auto;
+}
+
+input.overslider{
+  -webkit-appearance: none;
+  width: 95%;
+  postion:absolute;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: auto;
+	outline:0 !important;
+	background-color:rgba(0, 0, 0, 0);
+}
+
+input.overslider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+	width: 50px;
+	height: 50px;
+  background-image: url("arrow.png");
+	background-size: 50px;
+	background-repeat: no-repeat;
+	background-position: 100%;
+}
+
+input.verticalslide{
+	-webkit-appearance: none;
+	-webkit-transform:rotate(270deg);
+	transform: rotate(270deg);
+  position: absolute;
+/*  margin-left: 70%;
+  margin-top: 21%;*/
+/*  overflow: auto; */
+  display: none;
+	outline:0 !important;
+	writing-mode: bt-lr;
+	background-color:rgba(0, 0, 0, 0);
+
+}
+
+input.verticalslide::-webkit-slider-thumb {
+  -webkit-appearance: none;
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+	width: 50px;
+	height: 50px;
+  background-image: url("arrow.png");
+	background-size: 50px;
+	background-repeat: no-repeat;
+	background-position: 100%;
+}
+
+input.downslide{
+	-webkit-appearance: none;
+	-webkit-transform:rotate(180deg);
+  z-index: -1;
+	transform: rotate(180deg);
+  position: absolute;
+  width: 47%;
+  margin-top: 1%;
+  margin-left: 50%;
+/*  overflow: hidden; */
+  display: none;
+	outline:0 !important;
+	writing-mode: bt-lr;
+	background-color:rgba(0, 0, 0, 0);
+
+}
+
+input.downslide::-webkit-slider-thumb {
+  -webkit-appearance: none;
+	-webkit-transform: rotate(`deg);
+	width: 50px;
+	height: 50px;
+  background-image: url("arrow.png");
+	background-size: 50px;
+	background-repeat: no-repeat;
+	background-position: 100%;
+}
+
+.title{
+	font-weight: bold;
+	font-family: Consolas, monaco, monospace;
+	font-size: 30px;
+}
+
+.posthead{
+	font-family: Consolas, monaco, monospace;
+	font-size: 10px;
+}
+
+.post{	
+	font-family: Consolas, monaco, monospace;
+	font-size: 16px;
+}
+
+
+/*
+input[type=range]::-webkit-slider-runnable-track {
+  background: linear-gradient(to left, red 30%, transparent 30%);
+  background-position: right top;
+}
+*/
+
+
+
+
+

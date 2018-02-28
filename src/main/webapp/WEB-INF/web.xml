@@ -38,6 +38,7 @@
 		<url-pattern>/subscribe</url-pattern>
 	</servlet-mapping>
 	
+	
 	<filter>
 
         <filter-name>ObjectifyFilter</filter-name>
