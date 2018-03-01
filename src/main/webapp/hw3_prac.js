@@ -287,7 +287,9 @@ window.addEventListener('DOMContentLoaded', function(){
 		if(this.value == 0){
 			this.style.display = "none"; 
 			oldman4.pause();
-
+			
+			window.scrollTo(0,0);
+			
 			document.getElementById("headpic").src = "tenor1.gif"
 			
 			thebod.style.backgroundSize = "cover";

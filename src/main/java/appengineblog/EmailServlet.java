@@ -83,19 +83,20 @@ public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOExc
 
        // Set Subject: header field
        message.setSubject("New Blog Posts!! :)");
-      StringBuilder mes = new StringBuilder();
+       StringBuilder mes = new StringBuilder();
        // Now set the actual message
        List<BlogPost> posts = ofy().load().type(BlogPost.class).list();
        Date yes = new Date();
        long current = yes.getTime();
+       mes.append("Here are the latest blog posts from the last 24 hours\n\n\n\n__________________________________\n\n\n\n");
        for(BlogPost meme : posts){
     	   if((current - meme.getDate().getTime()) < 86400000)
     	   {
     		   mes.append(meme.getTitle());
-    		   mes.append(" by ");  mes.append(meme.user.getNickname()); mes.append(" at "); mes.append(meme.getDate().toString());
-    		   mes.append("\n");
-    		   mes.append(meme.getPost());
+    		   mes.append("\n\nby "); mes.append(meme.user.getNickname()); mes.append(" at "); mes.append(meme.getDate().toString());
     		   mes.append("\n\n\n");
+    		   mes.append(meme.getPost());
+    		   mes.append("\n\n\n__________________________________\n\n\n");
     	   }
        }
        if(mes.equals(null)){return;}

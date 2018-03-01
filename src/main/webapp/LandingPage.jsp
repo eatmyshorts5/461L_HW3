@@ -112,11 +112,9 @@
 	    		Dedicated to:<br> Colin Maxfield<br><br>
 	    		1992-2018<br><br>
 	    		"He was alright" -Mahatma Gandhi<br><br>
-	    		<div id="wrapper">
-		    		<form action="/LandingPage.jsp" method="get">
-						<input type="submit" id="restart" value="Let's try that again....">
-					</form>
-				</div>
+	    		<form id="restart" action="/LandingPage.jsp" method="get">
+					<input type="submit" value="Let's try that again....">
+				</form>
 			</p>
 		</div>
 
