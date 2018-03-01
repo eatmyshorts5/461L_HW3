@@ -33,9 +33,8 @@
 		<link rel="stylesheet" href="hw3_prac.css">
 		<%--<meta name="google-signin-client_id" content="909316987604-dc065603r3u64qfmdmm96aubrkltoo7f.apps.googleusercontent.com">--%><meta name="google-signin-client_id" content="909316987604-dc065603r3u64qfmdmm96aubrkltoo7f.apps.googleusercontent.com">
 		<link rel="stylesheet" href="test.css">
-
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
-		<title>A BRAND NEW BLOG</title>
+		<title>The Blog</title>
 	</head>
 	
 	<body id="ohyeah" class="background">
@@ -113,9 +112,11 @@
 	    		Dedicated to:<br> Colin Maxfield<br><br>
 	    		1992-2018<br><br>
 	    		"He was alright" -Mahatma Gandhi<br><br>
-	    		<form action="/LandingPage.jsp" method="get">
-					<input type="submit" id="restart" value="Let's try that again....">
-				</form>
+	    		<div id="wrapper">
+		    		<form action="/LandingPage.jsp" method="get">
+						<input type="submit" id="restart" value="Let's try that again....">
+					</form>
+				</div>
 			</p>
 		</div>
 
@@ -133,7 +134,6 @@
 			<p class="headtitle">THE BLOG</p>
 <% 
 			if(user != null){
-	    	
 	    		pageContext.setAttribute("user", user);
 	
 %>
@@ -204,14 +204,21 @@
 		</form><br><br>
 <% 
 		if(user != null){
-%>
-		<form name="formarea" action="appengineblog" method="post">
-			<input type="text" name="title">
-			<br>
-			<textarea name="post" rows="4" cols="50">
-				 
-			</textarea><br>
-			<input type="submit" value="Post">
+%>		<p id="posterhead">Post a Blog<p>
+		<form name="formarea" action="appengineblog" method="post" style="margin-top: 50px; margin-bottom: 25px">
+			<label>
+				Title
+				<input type="text" name="title" size="50">
+			</label>
+			<div style="vertical-align: middle">
+				<label>
+					Post<br>
+					<textarea name="post" rows="20" cols="90"></textarea>
+				</label>
+			</div>
+			<label>
+				<input type="submit" value="Post">
+			</label>
 			<input type="hidden" name="bloggerName" value="${fn:escapeXml(bloggerName)}"/>
 		</form>
 		<br>

@@ -4,6 +4,7 @@ import java.util.Date;
 
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.datastore.Text;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
@@ -16,7 +17,7 @@ public class BlogPost implements Comparable<BlogPost>{
 		@Id Long id;
 		@Index User user;
 		@Index String title;
-		@Index String post;
+		@Index Text post;
 		@Index Date date;
 		
 		private BlogPost() {
@@ -26,7 +27,7 @@ public class BlogPost implements Comparable<BlogPost>{
 		public BlogPost(User user, String title, String post) {
 			this.user = user;
 			this.title = title;
-			this.post = post;
+			this.post = new Text(post);
 			date = new Date();
 		}
 		
@@ -39,7 +40,7 @@ public class BlogPost implements Comparable<BlogPost>{
 		}
 		
 		public String getPost() {
-			return post;
+			return post.getValue();
 		}
 		
 		public Date getDate() {

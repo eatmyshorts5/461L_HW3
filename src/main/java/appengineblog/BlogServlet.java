@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
+import com.google.appengine.api.datastore.Text;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
@@ -39,7 +40,9 @@ public class BlogServlet extends HttpServlet {
 	        
 	        String title = req.getParameter("title");
 	        
-	        String post = req.getParameter("post");
+	        String hold = req.getParameter("post");
+	        
+	        Text post = new Text(hold);
 	        
 	        Date date = new Date();
 	        

@@ -21,7 +21,6 @@ var oldman2;
 var oldman3;
 var oldman4;
 var oldman5;
-var oldman6;
 var quote;
 var itval;
 var flag = true;
@@ -108,7 +107,6 @@ window.addEventListener('DOMContentLoaded', function(){
 	oldman3 = new Audio('oldman3.mp3');
 	oldman4 = new Audio('oldman4.mp3');
 	oldman5 = new Audio('oldman5.mp3');
-	oldman6 = new Audio('oldman6.mp3');
 	quote = new Audio('quote.mp3');
 	numposts = parseInt(document.getElementById("postnum").value);
 	if(document.getElementById("loginval").value == "true"){
@@ -121,12 +119,6 @@ window.addEventListener('DOMContentLoaded', function(){
 	var slideRect = sideslider.getBoundingClientRect();
 	console.log(slideRect.top, slideRect.right, slideRect.bottom, slideRect.left);
 	
-/*	sideslider.style.width = (0.9  * document.documentElement.scrollHeight) + 'px';
-	var slideRect = sideslider.getBoundingClientRect();
-	console.log(slideRect.top, slideRect.right, slideRect.bottom, slideRect.left);
-    sideslider.style.marginLeft = (document.documentElement.clientWidth - slideRect.bottom) + 'px';
-    sideslider.style.marginTop = (document.documentElement.scrollHeight * 0.45) + 'px';*/
-
 	sideslider.max = (numposts - 1) * 20;
 	sideslider.value = (numposts - 1) * 20;
 	
@@ -135,7 +127,7 @@ window.addEventListener('DOMContentLoaded', function(){
 	finalslider.style.marginLeft = "45%";
 	finalslider.style.marginTop = "5%";
 
-	document.body.scrollTop = document.documentElement.scrollTop = 0;
+	window.scrollTo(0,0);
 
 	oldman1.play();
 
@@ -147,7 +139,6 @@ window.addEventListener('DOMContentLoaded', function(){
 			clearInterval(cycle2);
 			vid.volume = 0.4;
 			vid.play();
-			oldman6.play();
 			vid.style.display = "block";
 			box.style.display = "none";
 			box2.style.display = "none";
@@ -210,14 +201,9 @@ window.addEventListener('DOMContentLoaded', function(){
     if(this.value > 84){
       this.style.display = "none";
       sideslider.style.display = "block";
-      sideslider.style.width = (0.9  * document.documentElement.scrollHeight) + 'px';
-  	  var slideRect = sideslider.getBoundingClientRect();
-  	  console.log(slideRect.top, slideRect.right, slideRect.bottom, slideRect.left);
-      //sideslider.style.marginLeft = (slideRect.left + (document.documentElement.scrollWidth - slideRect.left)) + 'px';
+      sideslider.style.width = (0.5  * document.documentElement.scrollHeight) + 'px';
   	  var slideRect = sideslider.getBoundingClientRect();
   	  sideslider.style.marginLeft = (document.documentElement.scrollWidth * 0.95 - slideRect.left)+"px";
-  	  //sideslider.style.marginTop = (document.documentElement.scrollHeight * 0.45) + 'px';
-  	  //sideslider.style.marginTop = "";
   	  sideslider.style.marginTop = -(slideRect.top - 100)+"px";
   	  
   	  if(document.getElementById("loginval").value == "true"){
@@ -279,6 +265,7 @@ window.addEventListener('DOMContentLoaded', function(){
 			this.style.display = "none";
 			thebod.style.backgroundRepeat = "no-repeat, repeat-y";
 			downslider.style.display = "block";
+			window.scrollTo(0, document.documentElement.scrollHeight * 0.9);
 			oldman2.pause();
 			oldman3.play();
 		}
