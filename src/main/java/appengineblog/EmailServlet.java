@@ -56,7 +56,7 @@ public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOExc
     //String to = "chandaarka@yahoo.com";
 
     // Sender's email ID needs to be mentioned
-    String from = "BlogUpdates@ee461l-hw3-196503.appspotmail.com";
+    String from = "BlogUpdates@ee461l-hw3-196501.appspotmail.com";
 
     // Assuming you are sending email from localhost
     String host = "localhost";
@@ -89,17 +89,18 @@ public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOExc
        Date yes = new Date();
        long current = yes.getTime();
        mes.append("Here are the latest blog posts from the last 24 hours\n\n\n\n__________________________________\n\n\n\n");
+       int length = mes.length();
        for(BlogPost meme : posts){
     	   if((current - meme.getDate().getTime()) < 86400000)
     	   {
     		   mes.append(meme.getTitle());
     		   mes.append("\n\nby "); mes.append(meme.user.getNickname()); mes.append(" at "); mes.append(meme.getDate().toString());
-    		   mes.append("\n\n\n");
+    		   mes.append("\n\n");
     		   mes.append(meme.getPost());
     		   mes.append("\n\n\n__________________________________\n\n\n");
     	   }
        }
-       if(mes.equals(null)){return;}
+       if(mes.length() == length){return;}
        message.setText(mes.toString()); 
 
        // Send message

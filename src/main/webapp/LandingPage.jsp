@@ -113,7 +113,7 @@
 	    		1992-2018<br><br>
 	    		"He was alright" -Mahatma Gandhi<br><br>
 	    		<form id="restart" action="/LandingPage.jsp" method="get">
-					<input type="submit" value="Let's try that again....">
+					<input type="submit" id="restart1" value="Let's try that again....">
 				</form>
 			</p>
 		</div>

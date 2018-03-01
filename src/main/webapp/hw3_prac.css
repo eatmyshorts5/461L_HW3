@@ -28,10 +28,15 @@ label {
 
 #restart{
 	visibility: hidden;
-	display: inline-block;
+	display: block;
 	text-align: center;
-	margin-left: auto;
+	margin-left: 50%;
     margin-right: auto;
+    z-index: 1000001;
+}
+
+#restart{
+    z-index: 1000001;
 }
 
 #posterhead{
@@ -47,8 +52,11 @@ label {
   font-size: 50px;
   color: #ffffff;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
   visibility: hidden;
+  z-index: 1000001;
 }
 
 .headerpic{
@@ -84,6 +92,7 @@ label {
 
 .fullscreen-bg__video {
     position: absolute;
+    pointer-events: none;
 	display: none;
     top: 0;
     left: 0;
