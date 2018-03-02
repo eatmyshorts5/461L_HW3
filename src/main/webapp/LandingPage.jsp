@@ -100,7 +100,7 @@
         }
 %>
 	    
-	    <div class="fullscreen-bg">
+	    <div id="fullscreen" class="fullscreen-bg">
 			<video id="thevid" class="fullscreen-bg__video">
 				<source src="static4.mp4" type="video/mp4">
 			</video>
@@ -108,12 +108,11 @@
 				<source src="space.mp4" type="video/mp4">
 			</video>
 			<p class="meme" id="thisisdumb">
-		    	<br><br><br>
 	    		Dedicated to:<br> Colin Maxfield<br><br>
 	    		1992-2018<br><br>
 	    		"He was alright" -Mahatma Gandhi<br><br>
 	    		<form id="restart" action="/LandingPage.jsp" method="get">
-					<input type="submit" id="restart1" value="Let's try that again....">
+					<input type="submit" class="butt" id="restart1" value="Let's try that again....">
 				</form>
 			</p>
 		</div>
@@ -129,7 +128,7 @@
 		<h1>
 			<img id="headpic" class="headerpic" src="tenor.gif">
 		
-			<p class="headtitle">THE BLOG</p>
+			<a href="LandingPage.jsp" id="headlink" class="headtitle">THE BLOG</a></p>
 <% 
 			if(user != null){
 	    		pageContext.setAttribute("user", user);
@@ -152,13 +151,18 @@
 		
 		<div id="thebox2">
 		<%
-	ObjectifyService.register(BlogPost.class);
+	ObjectifyService.register(BlogPost.class); 
+		
+	//Run this comment block if you want to delete all posts
+	/*List<Key<BlogPost>> keys = ObjectifyService.ofy().load().type(BlogPost.class).keys().list();
 	
-	List<BlogPost> posts = ObjectifyService.ofy().load().type(BlogPost.class).list();   
+	ofy().delete().keys(keys).now();*/
+	
+	List<BlogPost> posts = ObjectifyService.ofy().load().type(BlogPost.class).list();  
 	
 	Collections.sort(posts);
 	Collections.reverse(posts);
-	
+		
 	pageContext.setAttribute("numposts", Integer.toString(posts.size()));
 	
 	int sizer = 5;
@@ -190,7 +194,7 @@
 			<div id="title${fn:escapeXml(holder)}">${fn:escapeXml(post_title)}</div><br>
 			<div id="head${fn:escapeXml(holder)}">by ${fn:escapeXml(post_user)}, posted on ${fn:escapeXml(post_date)}</div>
 			<br><br>
-			<div id="post${fn:escapeXml(holder)}">${fn:escapeXml(post_content)}</div>
+			<div id="post${fn:escapeXml(holder)}"><pre style="white-space: pre-wrap;">${fn:escapeXml(post_content)}</pre></div>
 			<br>
 			<br><div id="colorstrip"></div><br><br>
 			
@@ -198,24 +202,28 @@
 		}
 	}%>
 		<form action="/postspage.jsp" method="get">
-			<input type="submit" value="View All">
+			<input type="submit" class="butt" value="View All">
 		</form><br><br>
 <% 
 		if(user != null){
+		
 %>		<p id="posterhead">Post a Blog<p>
-		<form name="formarea" action="appengineblog" method="post" style="margin-top: 50px; margin-bottom: 25px">
+		<form id="formarea" action="appengineblog" method="post" style="margin-top: 50px; margin-bottom: 25px">
 			<label>
-				Title
-				<input type="text" name="title" size="50">
+				<p id="Error"></p>
+			</label>
+			<label>
+				Title<br>
+				<input type="text" name="title" id="titlefield" size="50" placeholder="Enter Title Here">
 			</label>
 			<div style="vertical-align: middle">
 				<label>
 					Post<br>
-					<textarea name="post" rows="20" cols="90"></textarea>
+					<textarea name="post" id="postfield" rows="20" cols="90" placeholder="Enter Post Here"></textarea>
 				</label>
 			</div>
 			<label>
-				<input type="submit" value="Post">
+				<input type="button" class="butt" value="Post" onclick="checkerror()">
 			</label>
 			<input type="hidden" name="bloggerName" value="${fn:escapeXml(bloggerName)}"/>
 		</form>
@@ -223,13 +231,13 @@
 <%		
 		if(subscribed == false){%>
 			<form name="subarea" action="subscribe" method="post">
-				<input type="submit" value="Subscribe">
+				<input type="submit" class="butt" value="Subscribe">
 			</form>
 		<% 
 		} else {
 		%>
 			<form name="unsubarea" action="subscribe" method="get">
-				<input type="submit" value="Unsubscribe">
+				<input type="submit" class="butt" value="Unsubscribe">
 			</form>
 <% 		}
 		} else {%>
@@ -241,6 +249,10 @@
 
   	<input type="range" min="0" max="200" value="0" class="downslide" id="myRange3">
   	<input type="range" min="0" max="100" value="100" class="verticalslide" id="myRange4">
+  	
+  	<form id="hiddenform" action="/LandingPage.jsp" method="get">
+		<input type="hidden">
+	</form>
   	
   	<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 

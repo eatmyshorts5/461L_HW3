@@ -74,7 +74,7 @@
 	<div class="transbox" style="">
 		<h1>
 			<img id="headpic" class="headerpic" style="visibility:visible" src="tenor.gif">
-			<p class="headtitle">THE BLOG</p>
+			<a href="LandingPage.jsp" id="headlink" class="headtitle">THE BLOG</a></p>
 <% 
 		if(user != null){
 			pageContext.setAttribute("user", user);
@@ -119,7 +119,7 @@
 		<div id="title<%Integer.toString(hold);%>" class="title">${fn:escapeXml(post_title)}</div><br>
 		<div id="head<%Integer.toString(hold);%>" class="posthead">by ${fn:escapeXml(post_user)}, posted on ${fn:escapeXml(post_date)}</div>
 		<br><br>
-		<div id="post<%Integer.toString(hold);%>" class="post">${fn:escapeXml(post_content)}</div>
+		<div id="post<%Integer.toString(hold);%>" class="post"><pre style="white-space: pre-wrap;">${fn:escapeXml(post_content)}</pre></div>
 		<br>
 		<br><div id="colorstrip"></div><br><br>
 		<%hold += 1;
@@ -130,21 +130,26 @@
 		if(user != null){		
 			if(subscribed == false){%>
 				<form name="subarea" action="subscribe" method="post">
-					<input type="submit" value="Subscribe">
+					<input type="submit" class="butt" value="Subscribe">
 				</form>
 			<% 
 			} else {
 			%>
 				<form name="unsubarea" action="subscribe" method="get">
-					<input type="submit" value="Unsubscribe">
+					<input type="submit" class="butt" value="Unsubscribe">
 				</form>
 <% 			}
 		} 
 %>
 	<br><br>
 	<form action="/LandingPage.jsp" method="get">
-			<input type="submit" value="Home">
+			<input type="submit" class="butt" value="Home">
 	</form>
+	
+	<script>
+		var headlink = document.getElementById("headlink");
+		headlink.style.marginLeft = (document.documentElement.scrollWidth * 0.425 - headlink.offsetWidth)+"px";
+	</script>
 	</div>
 	</body>
 

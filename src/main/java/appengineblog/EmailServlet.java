@@ -100,7 +100,9 @@ public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOExc
     		   mes.append("\n\n\n__________________________________\n\n\n");
     	   }
        }
-       if(mes.length() == length){return;}
+       if(mes.length() == length){
+    	   return;
+       }
        message.setText(mes.toString()); 
 
        // Send message

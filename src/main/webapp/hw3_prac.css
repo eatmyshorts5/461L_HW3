@@ -30,13 +30,14 @@ label {
 	visibility: hidden;
 	display: block;
 	text-align: center;
-	margin-left: 50%;
     margin-right: auto;
+    position: relative;
     z-index: 1000001;
 }
 
 #restart{
     z-index: 1000001;
+    position: relative;
 }
 
 #posterhead{
@@ -59,6 +60,22 @@ label {
   z-index: 1000001;
 }
 
+#Error{
+	color: red;
+	display: none;
+}
+
+.butt{
+	background-color: #555555;
+	border-radius: 8px;
+	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+	border: 5px solid #e7e7e7;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    font-size: 16px;
+}
+
 .headerpic{
 	float: left;
 	height: 150px;
@@ -71,8 +88,9 @@ label {
 
 .headtitle{
 	text-align: center;
-	margin-left: 34%;
 	position: absolute;
+	text-decoration: none;
+	color: black;
 }
 
 .signin{
@@ -91,9 +109,9 @@ label {
 }
 
 .fullscreen-bg__video {
-    position: absolute;
-    pointer-events: none;
 	display: none;
+	position: absolute;
+	pointer-events: none;
     top: 0;
     left: 0;
     width: 100%;

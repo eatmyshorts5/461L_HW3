@@ -3,8 +3,8 @@
   <cron>
     <url>/tasks/summary</url>
     <description>Email Subscription</description>
-    <!--<schedule>every day 17:00</schedule>-->
-    <schedule>every 5 minutes</schedule>
+    <schedule>every day 17:00</schedule>
+    <!--<schedule>every 5 minutes</schedule>-->
     <timezone>America/Chicago</timezone>
   </cron>
 </cronentries>
