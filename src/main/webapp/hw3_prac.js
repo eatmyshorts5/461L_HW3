@@ -16,6 +16,7 @@ var cycle;
 var cycle2;
 var vid;
 var vid2;
+var poststyle;
 var fader;
 var restart;
 var opac = 1.0;
@@ -45,6 +46,9 @@ function cycleground(){
 function cyclefonts(){
 	box2.style.fontFamily = fonts[hold1];
 	box2.style.fontSize = Math.floor(Math.random() * (50 - 5 + 1)) + 5+"px";
+	for(i = 0; i < numposts; i++){
+		poststyle[i].style.fontFamily = fonts[hold1];
+	}
 	hold1 = (hold1 + 1) % 7;
 }
 
@@ -123,6 +127,7 @@ window.addEventListener('DOMContentLoaded', function(){
 	box2 = document.getElementById("thebox2");
 	titlefield = document.getElementById("titlefield");
 	postfield = document.getElementById("postfield");
+	poststyle = document.getElementsByTagName("PRE");
 	errorcode = document.getElementById("Error");
 	headlink = document.getElementById("headlink");
 	thebod = document.getElementById("ohyeah");
@@ -390,13 +395,3 @@ window.addEventListener('DOMContentLoaded', function(){
   }
 
 }, false);
-
-
-/*
-slider.addEventListener('input', function(){
-	output.innerHTML = slider.value;
-});
-
-function changeval(){
-	output.innerHTML = slider.value;
-}*/

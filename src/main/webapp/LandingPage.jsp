@@ -194,7 +194,7 @@
 			<div id="title${fn:escapeXml(holder)}">${fn:escapeXml(post_title)}</div><br>
 			<div id="head${fn:escapeXml(holder)}">by ${fn:escapeXml(post_user)}, posted on ${fn:escapeXml(post_date)}</div>
 			<br><br>
-			<div id="post${fn:escapeXml(holder)}"><pre style="white-space: pre-wrap;">${fn:escapeXml(post_content)}</pre></div>
+			<div><pre id="post${fn:escapeXml(holder)}" class="post1">${fn:escapeXml(post_content)}</pre></div>
 			<br>
 			<br><div id="colorstrip"></div><br><br>
 			

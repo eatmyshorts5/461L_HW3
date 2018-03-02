@@ -265,15 +265,6 @@ input.downslide::-webkit-slider-thumb {
 	font-size: 18px;
 }
 
-
-/*
-input[type=range]::-webkit-slider-runnable-track {
-  background: linear-gradient(to left, red 30%, transparent 30%);
-  background-position: right top;
+.post1{
+	white-space: pre-wrap;
 }
-*/
-
-
-
-
-
