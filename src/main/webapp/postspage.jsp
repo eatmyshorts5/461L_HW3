@@ -119,7 +119,7 @@
 		<div id="title<%Integer.toString(hold);%>" class="title">${fn:escapeXml(post_title)}</div><br>
 		<div id="head<%Integer.toString(hold);%>" class="posthead">by ${fn:escapeXml(post_user)}, posted on ${fn:escapeXml(post_date)}</div>
 		<br><br>
-		<div id="post<%Integer.toString(hold);%>" class="post"><pre style="white-space: pre-wrap;">${fn:escapeXml(post_content)}</pre></div>
+		<div id="post<%Integer.toString(hold);%>"><pre class="post post1">${fn:escapeXml(post_content)}</pre></div>
 		<br>
 		<br><div id="colorstrip"></div><br><br>
 		<%hold += 1;

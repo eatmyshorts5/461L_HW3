@@ -154,7 +154,7 @@ window.addEventListener('DOMContentLoaded', function(){
 	height = 2.0 * thebod.scrollHeight; 
 	thebod.style.backgroundSize = "200% "+height+"px, cover";
 	
-	restart.style.marginLeft = ((document.documentElement.scrollWidth * 0.5) - (document.getElementById("restart1").offsetWidth * 0.5))+'px';
+	//restart.style.marginLeft = ((document.documentElement.scrollWidth * 0.5) - (document.getElementById("restart1").offsetWidth * 0.5))+'px';
 	
 	headlink.style.marginLeft = (document.documentElement.scrollWidth * 0.425 - headlink.offsetWidth)+"px";
 	
@@ -260,7 +260,9 @@ window.addEventListener('DOMContentLoaded', function(){
   }, false);*/
 
 	slider.oninput = function() {
-    if(this.value > 84){
+	if(this.value == -1 && this.style.display == "none"){
+		
+	} else if(this.value > 84){
       this.style.display = "none";
       sideslider.style.display = "block";
       sideslider.style.width = (0.75  * document.documentElement.scrollHeight) + 'px';
@@ -294,8 +296,8 @@ window.addEventListener('DOMContentLoaded', function(){
       }
       		box.style.width = this.value+'%';
 			box2.style.width = this.value+'%';
-		} else {
-      box.classList.remove('transbox');
+	} else {
+			box.classList.remove('transbox');
 			box2.classList.remove('transbox');
     }
 	}
@@ -346,7 +348,8 @@ window.addEventListener('DOMContentLoaded', function(){
 	}
 
 	downslider.oninput = function() {
-		if(this.value < 200){
+		if(this.style.display == "none"){
+		} else if(this.value < 200){
 			thebod.style.backgroundSize = (200 - this.value)+"% "+height+"px, cover";
 	    } else {
 	    	thebod.style.backgroundSize = "0% 0%, cover"; 
@@ -394,4 +397,4 @@ window.addEventListener('DOMContentLoaded', function(){
     }
   }
 
-}, false);
+}, false);	
