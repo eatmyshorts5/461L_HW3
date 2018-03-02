@@ -214,15 +214,17 @@
 			</label>
 			<label>
 				Title<br>
-				<input type="text" name="title" id="titlefield" size="50" placeholder="Enter Title Here">
+				<input type="text" name="title" id="titlefield" size="60" placeholder="Enter Title Here"><br>
 			</label>
+			<br>
 			<div style="vertical-align: middle">
-				<label>
+				<label  style="margin-top:20px">
 					Post<br>
-					<textarea name="post" id="postfield" rows="20" cols="90" placeholder="Enter Post Here"></textarea>
+					<textarea name="post" id="postfield" rows="25" cols="100" placeholder="Enter Post Here"></textarea>
 				</label>
 			</div>
-			<label>
+			<br>
+			<label style="margin-top:20px">
 				<input type="button" class="butt" value="Post" onclick="checkerror()">
 			</label>
 			<input type="hidden" name="bloggerName" value="${fn:escapeXml(bloggerName)}"/>
@@ -241,7 +243,9 @@
 			</form>
 <% 		}
 		} else {%>
-			Please <a href="<%=userService.createLoginURL(request.getRequestURI()) %>">Sign in</a> to post
+			<p style="font-family: 'Adelle W01 Bold', 'Arvo', Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;">
+				Please <a href="<%=userService.createLoginURL(request.getRequestURI()) %>">Sign in</a> to post
+			<p>
 		<%}
 %>
 		<input type="hidden" name="number of posts" id="postnum" value="${fn:escapeXml(numposts)}">
